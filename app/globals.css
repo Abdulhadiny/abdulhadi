@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────────────────────
+   Near-monochrome, warm-neutral, with a single vermilion accent. */
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --fg: #17150f;
+  --muted: #6b675e;
+  --faint: #8f8b81;
+  --line: #e7e3da;
+  --line-strong: #d8d3c8;
+  --accent: #e2411b;
+  --grid: rgba(23, 21, 15, 0.028);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0b0a;
+    --surface: #131210;
+    --fg: #f3f0e9;
+    --muted: #9c968a;
+    --faint: #6f6a5f;
+    --line: #23211d;
+    --line-strong: #2f2c26;
+    --accent: #ff5c33;
+    --grid: rgba(243, 240, 233, 0.03);
+  }
+}
+
+/* Explicit theme override (set by the toggle) wins over the media query. */
+:root[data-theme="light"] {
+  --bg: #fbfaf8; --surface: #ffffff; --fg: #17150f; --muted: #6b675e;
+  --faint: #8f8b81; --line: #e7e3da; --line-strong: #d8d3c8; --accent: #e2411b;
+  --grid: rgba(23, 21, 15, 0.028);
+}
+:root[data-theme="dark"] {
+  --bg: #0c0b0a; --surface: #131210; --fg: #f3f0e9; --muted: #9c968a;
+  --faint: #6f6a5f; --line: #23211d; --line-strong: #2f2c26; --accent: #ff5c33;
+  --grid: rgba(243, 240, 233, 0.03);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv05", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Faint technical grid backdrop. */
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+a { color: inherit; }
+
+/* ── One restrained load reveal ────────────────────────────────────────────── */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { animation: none; opacity: 1; transform: none; }
+}
+
+/* Accent underline that draws in on hover for links. */
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover { background-size: 100% 1px; }
+
+/* Native disclosure marker removal for case-study details. */
+details summary::-webkit-details-marker { display: none; }
+details summary { list-style: none; }
