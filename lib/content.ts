@@ -45,7 +45,7 @@ export const projects: Project[] = [
     summary:
       "A collaborative translation-workflow platform that replaces ad-hoc processes with a structured, role-based, auditable pipeline — featuring a trigram-powered translation memory and full document round-tripping.",
     stack: ["Next.js 16", "TypeScript", "PostgreSQL / Prisma", "NextAuth v5", "pg_trgm", "Vitest"],
-    meta: "40 tests",
+    meta: "",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
       { label: "Live demo", href: "https://transleto.vercel.app/login" },
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     summary:
       "A staff-facing ERP for an event-rental business managing the full lifecycle across multiple stores — a transactional inventory ledger, bookings, condition-based returns, payment reconciliation, and P&L.",
     stack: ["Next.js 16", "React 19", "Prisma 7", "Neon", "React Query", "Vitest"],
-    meta: "17 tests",
+    meta: "",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
       { label: "Live demo", href: "https://as-deco-rho.vercel.app/login" },
@@ -133,7 +133,7 @@ export const projects: Project[] = [
       "Zod",
       "Docker",
     ],
-    meta: "Sole-authored",
+    meta: "Production ERP",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
       { label: "Live demo", href: "https://croma-chain.demo.hubuk.ng/login" },
@@ -189,7 +189,7 @@ export const projects: Project[] = [
       "Docker",
       "GitHub Actions",
     ],
-    meta: "Deployed application",
+    meta: "Production ERP",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
       { label: "Live demo", href: "https://croma-erp.demo.hubuk.ng/login" },
