@@ -40,7 +40,7 @@ export default function ProjectRow({ project, index }: { project: Project; index
             ))}
           </ul>
 
-          {project.type === "live" && project.links && (
+          {project.links && project.links.length > 0 && (
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
               {project.links.map((l) => (
                 <a

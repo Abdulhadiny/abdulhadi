@@ -53,31 +53,31 @@
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
-body {
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
-  font-feature-settings: "cv05", "ss01";
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  /* Faint technical grid backdrop. */
-  background-image:
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv05", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Faint technical grid backdrop. */
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
 
-::selection {
-  background: var(--accent);
-  color: #fff;
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
 }
-
-a { color: inherit; }
 
 /* ── One restrained load reveal ────────────────────────────────────────────── */
 @keyframes reveal {

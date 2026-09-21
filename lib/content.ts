@@ -11,9 +11,9 @@ export const profile = {
   email: "abdulhadiny@gmail.com",
   github: "https://github.com/Abdulhadiny",
   // TODO: add your LinkedIn URL (or leave "" to hide the link).
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/abdulhadi-n-bashir",
   // TODO: set your location, e.g. "Kano, Nigeria".
-  location: "Nigeria",
+  location: "Kano, Nigeria",
   // Shown next to the availability dot in the hero.
   availability: "Open to remote & full-time software engineer roles",
 };
@@ -40,7 +40,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "Transleto",
-    role: "Sole author",
+    role: "Developer",
     type: "live",
     summary:
       "A collaborative translation-workflow platform that replaces ad-hoc processes with a structured, role-based, auditable pipeline — featuring a trigram-powered translation memory and full document round-tripping.",
@@ -48,14 +48,14 @@ export const projects: Project[] = [
     meta: "40 tests",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
-      { label: "Live demo", href: "#" },
+      { label: "Live demo", href: "https://transleto.vercel.app/login" },
       // TODO: replace with the public GitHub repo URL.
-      { label: "GitHub", href: "#" },
+      { label: "GitHub", href: "https://github.com/Abdulhadiny/transleto" },
     ],
   },
   {
-    name: "RentFlow",
-    role: "Sole author",
+    name: "AS Deco",
+    role: "Developer",
     type: "live",
     summary:
       "A staff-facing ERP for an event-rental business managing the full lifecycle across multiple stores — a transactional inventory ledger, bookings, condition-based returns, payment reconciliation, and P&L.",
@@ -63,73 +63,174 @@ export const projects: Project[] = [
     meta: "17 tests",
     links: [
       // TODO: replace "#" with the deployed demo URL once it's live.
-      { label: "Live demo", href: "#" },
+      { label: "Live demo", href: "https://as-deco-rho.vercel.app/login" },
       // TODO: replace with the public GitHub repo URL.
-      { label: "GitHub", href: "#" },
+      { label: "GitHub", href: "https://github.com/Abdulhadiny/as-deco" },
     ],
   },
   {
-    name: "Procurement & Purchase-Order Platform",
-    role: "Lead engineer",
+    name: "KAMATS",
+    role: "Software Engineer",
     type: "case-study",
     summary:
-      "A platform for a distribution business that runs on Local Purchase Orders — modeling the full order lifecycle as a state machine and handling money correctly on both sides of every transaction.",
-    stack: ["Next.js 16", "Server Actions", "PostgreSQL / Prisma", "NextAuth v5", "Zod", "Docker"],
-    meta: "Code private",
+      "A production supply-chain and procurement ERP covering procurement, inventory, transfers, quality inspection, weighbridge, dispatch, and tender workflows, with role-based authorization, auditability, and transactional business operations.",
+    stack: [
+      "C# / .NET",
+      "EF Core",
+      "PostgreSQL",
+      "Next.js",
+      "TypeScript",
+      "RTK Query",
+      "Docker",
+    ],
+    meta: "Production ERP",
     caseStudy: {
       context:
-        "The business buys from suppliers and sells onward, dispatching trucks between locations. Tracked in spreadsheets it broke down: order numbers collided, deliveries weren't matched to orders, and — the expensive one — payments weren't reconciled correctly because two different withholding taxes applied.",
+        "A production ERP supporting operational workflows across procurement, inventory, logistics, quality inspection, weighbridge, dispatch, and tender management.",
       contribution:
-        "As lead engineer and largest contributor, I built the data model, the server-action API layer, the role-based access control, and the financial computation and reconciliation logic.",
+        "I led development of the operator-facing Next.js application while also contributing substantially to backend .NET domain services. My work included authorization, business-rule enforcement, auditability, data-integrity fixes, and transactional workflow reliability.",
       highlights: [
         {
-          title: "Dual-sided reconciliation with two withholding taxes",
-          body: "An order settles only when both payment directions are paid, each net of the tax withheld on that side. I isolated this into a pure, tolerance-aware predicate — an earlier version applied one tax to both sides and silently mis-stated balances.",
+          title: "Role-based authorization and segregation of duties",
+          body:
+            "Implemented and tested role-based permissions and operational scope restrictions, including segregation-of-duties controls across business workflows.",
         },
         {
-          title: "Race-free sequential order numbers",
-          body: "Human-readable order numbers can collide under concurrency, so I generate them with a database transaction and an atomic per-year counter — no duplicates are possible.",
+          title: "Data-integrity remediation",
+          body:
+            "Investigated and fixed 7 high-severity data-integrity issues and added regression coverage around authorization, supplier isolation, and business-rule enforcement.",
         },
         {
-          title: "A state machine you can't bypass",
-          body: "Every transition is guarded server-side: only submitted orders can be approved, orders can't be cancelled with weighed-in trucks, and dispatch is blocked on completed orders.",
+          title: "Audit instrumentation",
+          body:
+            "Added audit instrumentation across 13 domain services covering 54 business events, improving traceability of operational actions.",
         },
         {
-          title: "Context-aware, location-scoped authorization",
-          body: "Some permissions depend on where the user is — a destination operator can weigh a truck only when its location matches theirs — enforced at both the action entry point and the query layer.",
+          title: "Transactional and concurrency reliability",
+          body:
+            "Worked on goods-receipt processing issues involving transaction boundaries and concurrency-token handling to maintain reliable state under concurrent operations.",
+        },
+        {
+          title: "Typed frontend API integration",
+          body:
+            "Built the frontend API layer using RTK Query and OpenAPI-generated TypeScript contracts, including token refresh and normalized error handling.",
         },
       ],
     },
   },
   {
-    name: "Manufacturing & Inventory ERP",
-    role: "Core engineer",
+    name: "CromaChain Procurement & Logistics Platform",
+    role: "Software Engineer",
     type: "case-study",
     summary:
-      "An internal ERP for a recycling manufacturer modeling the full physical pipeline — waste to crushed, blended, packaged, finished goods — through to sales and finance, with automated operations and a complete audit trail.",
-    stack: ["Next.js 16", "PostgreSQL / Prisma", "NextAuth", "node-cron", "SendGrid", "GitHub Actions"],
-    meta: "Code private",
+      "A procurement and logistics platform that models the complete purchase-order lifecycle from requisition and approval through truck dispatch, weigh-in, payment, and reconciliation.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Server Actions",
+      "PostgreSQL / Prisma",
+      "NextAuth",
+      "Zod",
+      "Docker",
+    ],
+    meta: "Sole-authored",
+    links: [
+      // TODO: replace "#" with the deployed demo URL once it's live.
+      { label: "Live demo", href: "https://croma-chain.demo.hubuk.ng/login" },
+      // TODO: replace with the public GitHub repo URL.
+      { label: "GitHub", href: "#" },
+    ],
     caseStudy: {
       context:
-        "A recycling manufacturer needed to track physical stock as it changes form through a five-stage pipeline, while running the money side — supplier payments, sales, wallets, expenses, and P&L. The hard requirements: stock accuracy under concurrency, no double-charged payments, and correct dates on UTC infrastructure.",
+        "The business manages procurement and physical goods movement across locations. The platform replaces fragmented operational processes with a controlled workflow covering requisitions, approvals, dispatch, weighing, payments, and reconciliation.",
       contribution:
-        "As a core engineer and the largest single contributor, I focused on the transactional inventory and payment engines, the scheduled-operations subsystem, and application security hardening.",
+        "I independently designed and built the platform's relational data model, server-side business logic, authorization layer, workflow enforcement, and financial reconciliation logic.",
       highlights: [
         {
-          title: "Transactional inventory ledger",
-          body: "Crediting or debiting a store updates the quantity, appends an immutable transaction record, and writes an audit entry in one transaction — and the engine can join a larger operation atomically while refusing to over-draw stock.",
+          title: "End-to-end procurement workflow",
+          body:
+            "Built the workflow from requisition and approval through truck dispatch, weigh-in, payment, and final reconciliation.",
         },
         {
-          title: "Exactly-once payments via idempotency keys",
-          body: "Payments carry an idempotency key backed by a unique column, so a double-submitted request collapses to a single recorded payment — while advancing the linked sale's status in the same transaction.",
+          title: "Server-side workflow enforcement",
+          body:
+            "Implemented approximately 59 server actions following an authentication → permission → validation → transaction → audit pipeline.",
         },
         {
-          title: "Resilient scheduled operations",
-          body: "A node-cron scheduler runs recurring alerts and reports, tracks each run, and reconciles runs left 'in progress' after a crash to failed on restart — self-healing rather than silently stuck.",
+          title: "Location-scoped RBAC",
+          body:
+            "Implemented role-based authorization across seven roles, with permissions scoped to operational locations where required.",
         },
         {
-          title: "Security hardening as part of delivery",
-          body: "A strict CSP and header suite, error-message allow-listing so internal errors never leak, and a CI gate that fails pull requests on high/critical npm audit findings.",
+          title: "Two-sided payment reconciliation",
+          body:
+            "Built reconciliation logic covering the payment obligations on both sides of the transaction, including the applicable withholding-tax deductions and settlement conditions.",
+        },
+        {
+          title: "Transactional business operations",
+          body:
+            "Designed the PostgreSQL/Prisma data model and transactional service logic around the application's core procurement and logistics operations.",
+        },
+      ],
+    },
+  },
+  {
+    name: "CromERP Inventory, Production & Finance ERP",
+    role: "Software Engineer",
+    type: "case-study",
+    summary:
+      "An ERP-style application for a plastics recycling and manufacturing business covering supply, recycling, production, inventory, sales, finance, invoices, receipts, notifications, and audit trails.",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "PostgreSQL / Prisma",
+      "NextAuth",
+      "Docker",
+      "GitHub Actions",
+    ],
+    meta: "Deployed application",
+    links: [
+      // TODO: replace "#" with the deployed demo URL once it's live.
+      { label: "Live demo", href: "https://croma-erp.demo.hubuk.ng/login" },
+      // TODO: replace with the public GitHub repo URL.
+      { label: "GitHub", href: "#" },
+    ],
+    caseStudy: {
+      context:
+        "A plastics recycling and manufacturing business needed a single operational system to track raw-material purchasing, physical stock transformation, production, sales, supplier and customer payments, expenses, and financial reporting.",
+      contribution:
+        "I built the core business application across its operational domains, including the relational data model, server-side authorization, transactional inventory and payment workflows, auditability, financial reporting, and deployment setup.",
+      highlights: [
+        {
+          title: "Transactional inventory engine",
+          body:
+            "Implemented inventory operations so stock movements, transaction records, and audit entries are handled atomically while preventing invalid stock deductions.",
+        },
+        {
+          title: "Multi-stage manufacturing inventory",
+          body:
+            "Modeled inventory across the physical production pipeline from waste through crushed, blended, packaged, and finished goods, with stock tracked across five stores.",
+        },
+        {
+          title: "Payment reconciliation and ledgers",
+          body:
+            "Implemented supplier and customer payment workflows with running ledgers and reconciliation logic across the application's financial operations.",
+        },
+        {
+          title: "Role-based access control",
+          body:
+            "Implemented server-side RBAC and permission enforcement across operational modules and user roles.",
+        },
+        {
+          title: "Operational reporting",
+          body:
+            "Implemented financial and operational capabilities including expenses, P&L reporting, invoices, receipts, notifications, and audit records.",
+        },
+        {
+          title: "Containerized production deployment",
+          body:
+            "Configured the application as a standalone Docker deployment with PostgreSQL/Prisma migrations and a production deployment workflow using GitHub Actions, GHCR, and Docker Compose.",
         },
       ],
     },
